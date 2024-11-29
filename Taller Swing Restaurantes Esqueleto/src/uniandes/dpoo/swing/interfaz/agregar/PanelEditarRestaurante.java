@@ -1,6 +1,5 @@
 package uniandes.dpoo.swing.interfaz.agregar;
 
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JComboBox;
@@ -26,31 +25,37 @@ public class PanelEditarRestaurante extends JPanel
      */
     private JComboBox<String> cbbVisitado;
 
-    public PanelEditarRestaurante( )
-    {
-        // Crea el campo para el nombre con una etiqueta al frente
-        // TODO completar
+    public PanelEditarRestaurante() {
+        setLayout(new GridLayout(3, 2, 5, 5));
 
-        // Crea el selector para la calificación con una etiqueta al frente
-        // TODO completar
+        // Campo para el nombre
+        JLabel lblNombre = new JLabel("Nombre:");
+        txtNombre = new JTextField(20);
+        add(lblNombre);
+        add(txtNombre);
 
-        // Crea el selector para indicar si ya ha sido visitado, con una etiqueta al frente
-        // TODO completar
+        // Selector para la calificación
+        JLabel lblCalificacion = new JLabel("Calificación:");
+        cbbCalificacion = new JComboBox<>(new String[]{"1", "2", "3", "4", "5"});
+        add(lblCalificacion);
+        add(cbbCalificacion);
 
-        // Agregar todos los elementos al panel
-        // TODO completar
-
+        // Selector para indicar si fue visitado
+        JLabel lblVisitado = new JLabel("Visitado:");
+        cbbVisitado = new JComboBox<>(new String[]{"Sí", "No"});
+        add(lblVisitado);
+        add(cbbVisitado);
     }
 
     /**
      * Indica si en el selector se seleccionó la opción que dice que el restaurante fue visitado
      * @return
      */
-    public boolean getVisitado( )
-    {
-        // TODO completar
-        return false;
+   
+    public boolean getVisitado() {
+        return cbbVisitado.getSelectedItem().equals("Sí");
     }
+
 
     /**
      * Indica la calificación marcada en el selector
@@ -66,9 +71,7 @@ public class PanelEditarRestaurante extends JPanel
      * Indica el nombre digitado para el restaurante
      * @return
      */
-    public String getNombre( )
-    {
-        // TODO completar
-        return "";
+    public String getNombre() {
+        return txtNombre.getText();
     }
 }

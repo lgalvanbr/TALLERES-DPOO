@@ -65,9 +65,12 @@ public class PanelLista extends JPanel implements ListSelectionListener
         for( Restaurante q : restaurantes )
         {
             if( !dataModel.contains( q ) )
+            {
                 nuevosRestaurantes.add( q );
+                dataModel.addElement( q );
+            }   
         }
-        dataModel.addAll( nuevosRestaurantes );
+        // dataModel.addAll( nuevosRestaurantes );        
     }
 
     @Override
